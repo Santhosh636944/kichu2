@@ -499,9 +499,8 @@ body {
     padding-top: 15px;
 }
 .letter__border .letter .title__letter{
-    text-align: center;
-    font-family: 'Dancing Script', cursive;
-    font-weight: bold;
+    text-align: left;
+    padding-left: 25px;
     font-size: 2.4rem;
 }
 .title__letter .fa-solid{
@@ -512,10 +511,13 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    padding-top: 1.5rem;
-    padding-bottom: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
 }
+
 .letter__border .letter .content__letter .left{
     position: relative;
     width: 50%;
@@ -525,7 +527,7 @@ body {
 }
 .content__letter .left #heart__letter{
     opacity: 0;
-    width: 68%;
+    width: 100%;
 }
 #heart__letter.animationOp{
     animation: opacityHeart 1s 1s forwards;
@@ -724,13 +726,12 @@ body {
         padding-top: 15px;
     }
 
-    .letter__border .letter .title__letter {
-        text-align: center;
-        font-family: 'Dancing Script', cursive;
-        font-weight: bold;
-        font-size: 1.4rem;
-    }
-
+.letter__border .letter .title__letter{
+    text-align: left;
+    font-family: 'Dancing Script', cursive;
+    padding-left: 15px;
+    font-size: 1.4rem;
+}
     .letter__border .letter .content__letter {
         position: relative;
         width: 100%;
