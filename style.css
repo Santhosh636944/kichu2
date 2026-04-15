@@ -92,13 +92,8 @@ body {
     cursor: pointer;
     color: #fff;
     overflow: hidden;
-
-    /* 🔥 FIXED ANIMATION */
-    animation: scaleCricle 2s 16s forwards ease-in-out,
-               pulseGlow 2s infinite,
-               floatBtn 3s ease-in-out infinite;
+    animation: pulseGlow 2s infinite, floatBtn 3s ease-in-out infinite;
 }
-
 /* click */
 #btn__letter:active{
     transform: scale(0.7);
@@ -122,20 +117,24 @@ body {
     animation: rotateHeart 1s infinite linear;
 }
 
-/* 🔥 glow animation */
-@keyframes pulseGlow {
-    0% { transform: scale(1); }
-    50% { 
-        transform: scale(1.12); 
-        box-shadow: 0 0 25px rgba(255,0,0,0.5); 
-    }
-    100% { transform: scale(1); }
-}
-
-/* 🎈 floating */
 @keyframes floatBtn {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
+}
+
+@keyframes pulseGlow {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 rgba(255,0,0,0);
+    }
+    50% { 
+        transform: scale(1.12); 
+        box-shadow: 0 0 25px rgba(255,0,0,0.5);
+    }
+    100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 rgba(255,0,0,0);
+    }
 }
 
 #btn__letter::after{
