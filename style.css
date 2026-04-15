@@ -92,32 +92,37 @@ body {
     cursor: pointer;
     color: #fff;
     overflow: hidden;
-    animation: pulseGlow 2s infinite, floatBtn 3s ease-in-out infinite;
+
+    /* 🔥 FIXED ANIMATION */
+    animation: scaleCricle 2s 16s forwards ease-in-out,
+               pulseGlow 2s infinite,
+               floatBtn 3s ease-in-out infinite;
 }
 
-@keyframes floatBtn {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-}
+/* click */
 #btn__letter:active{
     transform: scale(0.7);
 }
+
+/* icon spacing */
 #btn__letter i{
     margin-left: 5px;
 }
+
+/* hover */
 #btn__letter:hover{
     border-color: var(--color-heart);
     background-color: var(--color-heart);
     color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    animation: none;
 }
+
+/* icon animation */
 #btn__letter:hover i{
     animation: rotateHeart 1s infinite linear;
 }
 
-/* ── Button attention animation ── */
+/* 🔥 glow animation */
 @keyframes pulseGlow {
     0% { transform: scale(1); }
     50% { 
@@ -127,6 +132,7 @@ body {
     100% { transform: scale(1); }
 }
 
+/* 🎈 floating */
 @keyframes floatBtn {
     0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
