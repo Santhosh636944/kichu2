@@ -227,5 +227,32 @@
         $(".box__letter").slideUp();
         $(".letter__border").slideUp();
     })
+    window.onload = function() {
+    startEmojiRain();
+};
+    function startEmojiRain() {
+    const emojis = ["🦎","🎉","🎈","🥳","🎁","💜","😇"];
+
+    for (let i = 0; i < 25; i++) {
+        let span = document.createElement("span");
+        span.classList.add("emoji-rain");
+
+        span.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
+
+        span.style.left = Math.random() * 100 + "vw";
+        span.style.setProperty("--dur", (3 + Math.random() * 2) + "s");
+        span.style.setProperty("--delay", (Math.random() * 2) + "s");
+        span.style.setProperty("--rot", (Math.random() * 30) + "deg");
+        span.style.setProperty("--sway1", (20 + Math.random() * 30) + "px");
+        span.style.setProperty("--sway2", (-20 - Math.random() * 30) + "px");
+        span.style.setProperty("--size", (1.5 + Math.random() * 2) + "rem");
+
+        document.body.appendChild(span);
+
+        setTimeout(() => {
+            span.remove();
+        }, 6000);
+    }
+}
 </script>
 </html>
