@@ -92,42 +92,15 @@ body {
     cursor: pointer;
     color: #fff;
     overflow: hidden;
-    animation: pulseGlow 2s infinite,
-               floatBtn 3s ease-in-out infinite,
-               btnColorCycle 4s ease-in-out infinite;
+    animation: scaleCricle 2s 16s forwards ease-in-out,
+               btnAttention 1.4s 17s infinite ease-in-out;
 }
 
-/* ── Shimmer sweep — runs on the ::before pseudo-element ── */
-#btn__letter::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -75%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        rgba(255,255,255,0)    0%,
-        rgba(255,255,255,0.55) 50%,
-        rgba(255,255,255,0)   100%
-    );
-    border-radius: 50px;
-    transform: skewX(-20deg);
-    animation: shimmerSweep 3s 0.5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-@keyframes shimmerSweep {
-    0%        { left: -75%;  opacity: 0; }
-    8%        {              opacity: 1; }
-    50%       { left: 125%;  opacity: 1; }
-    51%, 100% { left: 125%;  opacity: 0; }
-}
-
-/* ── Subtle background colour loop ── */
-@keyframes btnColorCycle {
-    0%, 100% { background: linear-gradient(45deg, #ff4b5c, #ff9aa2); }
-    50%       { background: linear-gradient(45deg, #e8001a, #ff6070); }
+@keyframes btnAttention {
+    0%, 100% { transform: scale(1);            box-shadow: 0 0 0 0    rgba(255, 120, 130, 0.7); }
+    25%       { transform: scale(1.08) rotate(-2deg); }
+    50%       { transform: scale(1.12);         box-shadow: 0 0 0 10px rgba(255, 120, 130, 0);   }
+    75%       { transform: scale(1.08) rotate(2deg);  }
 }
 
 /* click */
@@ -798,7 +771,7 @@ body {
         z-index: 2;
         transition: all .5s ease-in-out;
         animation: scaleCricle 2s 16s forwards ease-in-out,
-                   btnAttention 1.4s 17.2s infinite ease-in-out;
+                   btnAttention 1.4s 17s infinite ease-in-out;
     }
     .cricle {
         position: absolute;
