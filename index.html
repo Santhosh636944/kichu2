@@ -11,7 +11,6 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <style>
-        /* ── Popup Button Wrapper ── */
         .popup__btn__wrap {
             display: none;
             justify-content: center;
@@ -39,56 +38,6 @@
             60%  { transform: scale(1.15) rotate(3deg); opacity: 1; }
             80%  { transform: scale(0.93) rotate(-1deg); }
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
-        }
-
-        /* ── Surprise Card Overlay ── */
-        #surprise__popup {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,.55);
-            z-index: 999;
-            justify-content: center;
-            align-items: center;
-        }
-        #surprise__popup.active { display: flex; }
-        .surprise__card {
-            background: #fff8e4;
-            border: 3px solid #333;
-            border-radius: 24px;
-            padding: 36px 30px;
-            text-align: center;
-            max-width: 320px;
-            width: 90%;
-            box-shadow: 0 8px 32px rgba(0,0,0,.2);
-            animation: popBtn .5s ease;
-            font-family: "Sriracha", cursive;
-        }
-        .surprise__card .big-emoji {
-            font-size: 3.5rem;
-            display: block;
-            margin-bottom: 12px;
-        }
-        .surprise__card h2 {
-            font-size: 1.5rem;
-            color: #ff4b5c;
-            margin-bottom: 10px;
-        }
-        .surprise__card p {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.6;
-        }
-        .close__surprise {
-            margin-top: 20px;
-            background: linear-gradient(135deg,#ff4b5c,#ff9aa2);
-            color: #fff;
-            border: 3px solid #333;
-            border-radius: 50px;
-            padding: 8px 24px;
-            font-family: "Sriracha", cursive;
-            font-size: 1rem;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -212,27 +161,17 @@
                         </div>
                     </div>
 
-                    <!-- ✅ Message முடிஞ்சதும் இங்க button வரும் -->
+                    <!-- ✅ Message முடிஞ்சதும் button வரும் — click பண்ணா link open ஆகும் -->
                     <div class="popup__btn__wrap">
-                        <button id="popup__btn">🎁 Oru Surprise Iruku! ✨</button>
+                        <button id="popup__btn" onclick="window.open('https://santhosh636944.github.io/b_cake/', '_blank')">
+                            🎁 Oru Surprise Iruku! ✨
+                        </button>
                     </div>
 
                 </div>
                 <div class="close">
                     <i class="fa-solid fa-xmark"></i>
                 </div>
-            </div>
-        </div>
-
-        <!-- ✅ Surprise Card -->
-        <div id="surprise__popup">
-            <div class="surprise__card">
-                <span class="big-emoji">🎂🥳🎉</span>
-                <h2>Happy Birthday Kichu! 🦎❤️</h2>
-                <p>Nee enn life-la vara mathiri luck pannitha God-ku thanks! <br><br>
-                Unn smile paatha poi vida maaten di 😄<br>
-                Ipovum always happyah iru! ❤️✨</p>
-                <button class="close__surprise">💖 Thank you!</button>
             </div>
         </div>
 
@@ -270,7 +209,6 @@
     var intervalTitle;
 
     $("#btn__letter").on("click", function(){
-        // Reopen பண்ணா button மறையும்
         document.querySelector(".popup__btn__wrap").classList.remove("show");
 
         $(".box__letter").slideDown();
@@ -322,17 +260,6 @@
         }, 6000);
     });
 
-    // ✅ Surprise button click
-    document.querySelector("#popup__btn").addEventListener("click", function(){
-        document.querySelector("#surprise__popup").classList.add("active");
-    });
-
-    // ✅ Surprise card close
-    document.querySelector(".close__surprise").addEventListener("click", function(){
-        document.querySelector("#surprise__popup").classList.remove("active");
-    });
-
-    // ✅ Letter close
     $(".close").on("click", function(){
         clearInterval(intervalContent);
         document.querySelector(".title__letter").textContent = "";
